@@ -1,0 +1,15 @@
+data_source staging:
+  type: snowflake
+  username: ${SNOWFLAKE_USER}
+  password: ${SNOWFLAKE_PASSWORD}
+  account: ${SNOWFLAKE_ACCOUNT}
+  database: AIRBYTE_DATABASE
+  warehouse: AIRBYTE_WAREHOUSE
+  connection_timeout: 240
+  role: AIRBYTE_ROLE
+  client_session_keep_alive: true
+  session_params:
+    QUERY_TAG: soda-queries
+    QUOTED_IDENTIFIERS_IGNORE_CASE: false
+  schema: STAGING
+
