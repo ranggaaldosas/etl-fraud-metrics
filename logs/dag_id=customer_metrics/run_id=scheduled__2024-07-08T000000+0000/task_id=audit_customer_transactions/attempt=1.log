@@ -1,0 +1,230 @@
+[2024-07-09T04:44:20.918+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.audit_customer_transactions scheduled__2024-07-08T00:00:00+00:00 [queued]>
+[2024-07-09T04:44:20.927+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.audit_customer_transactions scheduled__2024-07-08T00:00:00+00:00 [queued]>
+[2024-07-09T04:44:20.928+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T04:44:20.942+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonExternalDecoratedOperator): audit_customer_transactions> on 2024-07-08 00:00:00+00:00
+[2024-07-09T04:44:20.948+0000] {standard_task_runner.py:60} INFO - Started process 725 to run task
+[2024-07-09T04:44:20.950+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'audit_customer_transactions', 'scheduled__2024-07-08T00:00:00+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmp5ma3jdq3']
+[2024-07-09T04:44:20.952+0000] {standard_task_runner.py:88} INFO - Job 26: Subtask audit_customer_transactions
+[2024-07-09T04:44:20.997+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.audit_customer_transactions scheduled__2024-07-08T00:00:00+00:00 [running]> on host 3726baa263d6
+[2024-07-09T04:44:21.071+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='audit_customer_transactions' AIRFLOW_CTX_EXECUTION_DATE='2024-07-08T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-08T00:00:00+00:00'
+[2024-07-09T04:44:21.129+0000] {python.py:913} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-09T04:44:21.130+0000] {python.py:914} WARNING - This means that Airflow is not properly installed by  /opt/airflow/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.2 in your environment to access them.
+[2024-07-09T04:44:21.196+0000] {process_utils.py:182} INFO - Executing cmd: /opt/airflow/soda_venv/bin/python /tmp/venv-callqn3y9zqh/script.py /tmp/venv-callqn3y9zqh/script.in /tmp/venv-callqn3y9zqh/script.out /tmp/venv-callqn3y9zqh/string_args.txt /tmp/venv-callqn3y9zqh/termination.log
+[2024-07-09T04:44:21.207+0000] {process_utils.py:186} INFO - Output:
+[2024-07-09T04:44:22.975+0000] {process_utils.py:190} INFO - [04:44:22] Could not connect to data source "staging": 251005: User is empty
+[2024-07-09T04:44:22.976+0000] {process_utils.py:190} INFO -   | 251005: User is empty
+[2024-07-09T04:44:22.976+0000] {process_utils.py:190} INFO -   | Stacktrace:
+[2024-07-09T04:44:22.977+0000] {process_utils.py:190} INFO -   | Traceback (most recent call last):
+[2024-07-09T04:44:22.977+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/soda/execution/data_source_manager.py", line 48, in get_data_source
+[2024-07-09T04:44:22.978+0000] {process_utils.py:190} INFO -   |     data_source.connect()
+[2024-07-09T04:44:22.978+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/soda/data_sources/snowflake_data_source.py", line 100, in connect
+[2024-07-09T04:44:22.978+0000] {process_utils.py:190} INFO -   |     self.connection = connector.connect(
+[2024-07-09T04:44:22.979+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/__init__.py", line 55, in Connect
+[2024-07-09T04:44:22.979+0000] {process_utils.py:190} INFO -   |     return SnowflakeConnection(**kwargs)
+[2024-07-09T04:44:22.980+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 442, in __init__
+[2024-07-09T04:44:22.980+0000] {process_utils.py:190} INFO -   |     self.connect(**kwargs)
+[2024-07-09T04:44:22.981+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 707, in connect
+[2024-07-09T04:44:22.981+0000] {process_utils.py:190} INFO -   |     self.__config(**kwargs)
+[2024-07-09T04:44:22.981+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 1188, in __config
+[2024-07-09T04:44:22.982+0000] {process_utils.py:190} INFO -   |     Error.errorhandler_wrapper(
+[2024-07-09T04:44:22.982+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+[2024-07-09T04:44:22.982+0000] {process_utils.py:190} INFO -   |     handed_over = Error.hand_to_other_handler(
+[2024-07-09T04:44:22.983+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 348, in hand_to_other_handler
+[2024-07-09T04:44:22.983+0000] {process_utils.py:190} INFO -   |     connection.errorhandler(connection, cursor, error_class, error_value)
+[2024-07-09T04:44:22.984+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+[2024-07-09T04:44:22.984+0000] {process_utils.py:190} INFO -   |     raise error_class(
+[2024-07-09T04:44:22.984+0000] {process_utils.py:190} INFO -   | snowflake.connector.errors.ProgrammingError: 251005: User is empty
+[2024-07-09T04:44:22.985+0000] {process_utils.py:190} INFO - 
+[2024-07-09T04:44:22.985+0000] {process_utils.py:190} INFO - [04:44:22] No valid checks found, 0 checks evaluated.
+[2024-07-09T04:44:22.985+0000] {process_utils.py:190} INFO - [04:44:22] Could not connect to data source "staging": 251005: User is empty
+[2024-07-09T04:44:22.985+0000] {process_utils.py:190} INFO -   | 251005: User is empty
+[2024-07-09T04:44:22.986+0000] {process_utils.py:190} INFO -   | Stacktrace:
+[2024-07-09T04:44:22.986+0000] {process_utils.py:190} INFO -   | Traceback (most recent call last):
+[2024-07-09T04:44:22.986+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/soda/execution/data_source_manager.py", line 48, in get_data_source
+[2024-07-09T04:44:22.987+0000] {process_utils.py:190} INFO -   |     data_source.connect()
+[2024-07-09T04:44:22.987+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/soda/data_sources/snowflake_data_source.py", line 100, in connect
+[2024-07-09T04:44:22.987+0000] {process_utils.py:190} INFO -   |     self.connection = connector.connect(
+[2024-07-09T04:44:22.988+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/__init__.py", line 55, in Connect
+[2024-07-09T04:44:22.988+0000] {process_utils.py:190} INFO -   |     return SnowflakeConnection(**kwargs)
+[2024-07-09T04:44:22.988+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 442, in __init__
+[2024-07-09T04:44:22.988+0000] {process_utils.py:190} INFO -   |     self.connect(**kwargs)
+[2024-07-09T04:44:22.989+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 707, in connect
+[2024-07-09T04:44:22.989+0000] {process_utils.py:190} INFO -   |     self.__config(**kwargs)
+[2024-07-09T04:44:22.989+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 1188, in __config
+[2024-07-09T04:44:22.990+0000] {process_utils.py:190} INFO -   |     Error.errorhandler_wrapper(
+[2024-07-09T04:44:22.990+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+[2024-07-09T04:44:22.991+0000] {process_utils.py:190} INFO -   |     handed_over = Error.hand_to_other_handler(
+[2024-07-09T04:44:22.991+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 348, in hand_to_other_handler
+[2024-07-09T04:44:22.991+0000] {process_utils.py:190} INFO -   |     connection.errorhandler(connection, cursor, error_class, error_value)
+[2024-07-09T04:44:22.992+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+[2024-07-09T04:44:22.992+0000] {process_utils.py:190} INFO -   |     raise error_class(
+[2024-07-09T04:44:22.992+0000] {process_utils.py:190} INFO -   | snowflake.connector.errors.ProgrammingError: 251005: User is empty
+[2024-07-09T04:44:22.993+0000] {process_utils.py:190} INFO - 
+[2024-07-09T04:44:22.993+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-09T04:44:22.994+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.2.2
+[2024-07-09T04:44:22.994+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "include/soda/configuration.yml"
+[2024-07-09T04:44:22.994+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "include/soda/checks/tables/labeled_transactions.yml"
+[2024-07-09T04:44:22.995+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "include/soda/checks/tables/customer_transactions.yml"
+[2024-07-09T04:44:22.995+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-09T04:44:22.996+0000] {process_utils.py:190} INFO - ERROR  | Could not connect to data source "staging": 251005: User is empty | 251005: User is empty
+[2024-07-09T04:44:22.996+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-09T04:44:22.996+0000] {process_utils.py:190} INFO - WARNING| No valid checks found, 0 checks evaluated.
+[2024-07-09T04:44:22.997+0000] {process_utils.py:190} INFO - INFO   | 1 errors.
+[2024-07-09T04:44:22.997+0000] {process_utils.py:190} INFO - INFO   | Oops! 1 error. 0 failures. 0 warnings. 0 pass.
+[2024-07-09T04:44:22.997+0000] {process_utils.py:190} INFO - Traceback (most recent call last):
+[2024-07-09T04:44:22.998+0000] {process_utils.py:190} INFO -   File "/tmp/venv-callqn3y9zqh/script.py", line 50, in <module>
+[2024-07-09T04:44:22.998+0000] {process_utils.py:190} INFO -     res = audit_customer_transactions(*arg_dict["args"], **arg_dict["kwargs"])
+[2024-07-09T04:44:22.999+0000] {process_utils.py:190} INFO -   File "/tmp/venv-callqn3y9zqh/script.py", line 23, in audit_customer_transactions
+[2024-07-09T04:44:22.999+0000] {process_utils.py:190} INFO -     check(scan_name, checks_subpath, data_source)
+[2024-07-09T04:44:23.000+0000] {process_utils.py:190} INFO -   File "/opt/airflow/include/soda/helpers.py", line 22, in check
+[2024-07-09T04:44:23.000+0000] {process_utils.py:190} INFO -     raise ValueError('Soda Scan failed')
+[2024-07-09T04:44:23.000+0000] {process_utils.py:190} INFO - ValueError: Soda Scan failed
+[2024-07-09T04:44:23.172+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 401, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 861, in execute_callable
+    return self._execute_python_callable_in_subprocess(python_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 478, in _execute_python_callable_in_subprocess
+    raise AirflowException(error_msg) from None
+airflow.exceptions.AirflowException: Process returned non-zero exit status 1.
+Soda Scan failed
+[2024-07-09T04:44:23.178+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_metrics, task_id=audit_customer_transactions, execution_date=20240708T000000, start_date=20240709T044420, end_date=20240709T044423
+[2024-07-09T04:44:23.205+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 26 for task audit_customer_transactions (Process returned non-zero exit status 1.
+Soda Scan failed; 725)
+[2024-07-09T04:44:23.253+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-09T04:44:23.274+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-09T10:01:09.715+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.audit_customer_transactions scheduled__2024-07-08T00:00:00+00:00 [queued]>
+[2024-07-09T10:01:09.725+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.audit_customer_transactions scheduled__2024-07-08T00:00:00+00:00 [queued]>
+[2024-07-09T10:01:09.726+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T10:01:09.739+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonExternalDecoratedOperator): audit_customer_transactions> on 2024-07-08 00:00:00+00:00
+[2024-07-09T10:01:09.747+0000] {standard_task_runner.py:60} INFO - Started process 4855 to run task
+[2024-07-09T10:01:09.751+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'audit_customer_transactions', 'scheduled__2024-07-08T00:00:00+00:00', '--job-id', '165', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmpiihuueaf']
+[2024-07-09T10:01:09.753+0000] {standard_task_runner.py:88} INFO - Job 165: Subtask audit_customer_transactions
+[2024-07-09T10:01:09.804+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.audit_customer_transactions scheduled__2024-07-08T00:00:00+00:00 [running]> on host 3726baa263d6
+[2024-07-09T10:01:09.892+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='audit_customer_transactions' AIRFLOW_CTX_EXECUTION_DATE='2024-07-08T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-08T00:00:00+00:00'
+[2024-07-09T10:01:09.937+0000] {python.py:913} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-09T10:01:09.938+0000] {python.py:914} WARNING - This means that Airflow is not properly installed by  /opt/airflow/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.2 in your environment to access them.
+[2024-07-09T10:01:09.999+0000] {process_utils.py:182} INFO - Executing cmd: /opt/airflow/soda_venv/bin/python /tmp/venv-calla67qif7z/script.py /tmp/venv-calla67qif7z/script.in /tmp/venv-calla67qif7z/script.out /tmp/venv-calla67qif7z/string_args.txt /tmp/venv-calla67qif7z/termination.log
+[2024-07-09T10:01:10.011+0000] {process_utils.py:186} INFO - Output:
+[2024-07-09T10:01:13.731+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-09T10:01:13.731+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.2.2
+[2024-07-09T10:01:13.732+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "include/soda/configuration.yml"
+[2024-07-09T10:01:13.733+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "include/soda/checks/tables/labeled_transactions.yml"
+[2024-07-09T10:01:13.734+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "include/soda/checks/tables/customer_transactions.yml"
+[2024-07-09T10:01:13.735+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-09T10:01:13.735+0000] {process_utils.py:190} INFO - DEBUG  | Query staging.customer_transactions.aggregation[0]:
+[2024-07-09T10:01:13.736+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-09T10:01:13.737+0000] {process_utils.py:190} INFO -   COUNT(*),
+[2024-07-09T10:01:13.738+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN transaction_id IS NULL THEN 1 END),
+[2024-07-09T10:01:13.738+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN user_id IS NULL THEN 1 END),
+[2024-07-09T10:01:13.739+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN transaction_date IS NULL THEN 1 END),
+[2024-07-09T10:01:13.739+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN amount IS NULL THEN 1 END)
+[2024-07-09T10:01:13.740+0000] {process_utils.py:190} INFO - FROM AIRBYTE_DATABASE.STAGING.customer_transactions
+[2024-07-09T10:01:13.741+0000] {process_utils.py:190} INFO - DEBUG  | Query staging.customer_transactions.transaction_id.duplicate_count:
+[2024-07-09T10:01:13.741+0000] {process_utils.py:190} INFO - 
+[2024-07-09T10:01:13.742+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-09T10:01:13.742+0000] {process_utils.py:190} INFO -     SELECT COUNT(*) AS frequency
+[2024-07-09T10:01:13.743+0000] {process_utils.py:190} INFO -     FROM AIRBYTE_DATABASE.STAGING.customer_transactions
+[2024-07-09T10:01:13.744+0000] {process_utils.py:190} INFO -     WHERE transaction_id IS NOT NULL
+[2024-07-09T10:01:13.744+0000] {process_utils.py:190} INFO -     GROUP BY transaction_id)
+[2024-07-09T10:01:13.744+0000] {process_utils.py:190} INFO - SELECT COUNT(*)
+[2024-07-09T10:01:13.745+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-09T10:01:13.746+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-09T10:01:13.746+0000] {process_utils.py:190} INFO - DEBUG  | Query staging.customer_transactions.duplicate_count[transaction_id].failed_rows.aggregated:
+[2024-07-09T10:01:13.747+0000] {process_utils.py:190} INFO - 
+[2024-07-09T10:01:13.747+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-09T10:01:13.747+0000] {process_utils.py:190} INFO -     SELECT transaction_id, COUNT(*) AS frequency
+[2024-07-09T10:01:13.748+0000] {process_utils.py:190} INFO -     FROM AIRBYTE_DATABASE.STAGING.customer_transactions
+[2024-07-09T10:01:13.749+0000] {process_utils.py:190} INFO -     WHERE transaction_id IS NOT NULL
+[2024-07-09T10:01:13.749+0000] {process_utils.py:190} INFO -     GROUP BY transaction_id)
+[2024-07-09T10:01:13.749+0000] {process_utils.py:190} INFO - SELECT *
+[2024-07-09T10:01:13.750+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-09T10:01:13.751+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-09T10:01:13.751+0000] {process_utils.py:190} INFO - ORDER BY frequency DESC
+[2024-07-09T10:01:13.752+0000] {process_utils.py:190} INFO - LIMIT 100
+[2024-07-09T10:01:13.752+0000] {process_utils.py:190} INFO - DEBUG  | Query staging.customer_transactions.schema[customer_transactions]:
+[2024-07-09T10:01:13.753+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-09T10:01:13.754+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-09T10:01:13.754+0000] {process_utils.py:190} INFO - WHERE upper(table_name) = 'CUSTOMER_TRANSACTIONS'
+[2024-07-09T10:01:13.754+0000] {process_utils.py:190} INFO -   AND upper(table_catalog) = 'AIRBYTE_DATABASE'
+[2024-07-09T10:01:13.755+0000] {process_utils.py:190} INFO -   AND upper(table_schema) = 'STAGING'
+[2024-07-09T10:01:13.756+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-09T10:01:13.756+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-09T10:01:13.756+0000] {process_utils.py:190} INFO - DEBUG  | 4/4 queries OK
+[2024-07-09T10:01:13.757+0000] {process_utils.py:190} INFO - DEBUG  |   staging.customer_transactions.aggregation[0] [OK] 0:00:00.101886
+[2024-07-09T10:01:13.758+0000] {process_utils.py:190} INFO - DEBUG  |   staging.customer_transactions.transaction_id.duplicate_count [OK] 0:00:00.070570
+[2024-07-09T10:01:13.758+0000] {process_utils.py:190} INFO - DEBUG  |   staging.customer_transactions.duplicate_count[transaction_id].failed_rows.aggregated [OK] 0:00:00.060792
+[2024-07-09T10:01:13.759+0000] {process_utils.py:190} INFO - DEBUG  |   staging.customer_transactions.schema[customer_transactions] [OK] 0:00:00.889364
+[2024-07-09T10:01:13.760+0000] {process_utils.py:190} INFO - INFO   | 12/14 checks PASSED:
+[2024-07-09T10:01:13.760+0000] {process_utils.py:190} INFO - INFO   |     customer_transactions in staging
+[2024-07-09T10:01:13.761+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.762+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [_AIRBYTE_RAW_ID TEXT, _AIRBYTE_EXTRACTED_AT TIMESTAMP_TZ, _AIRBYTE_META VARIANT, AMOUNT FLOAT, USER_ID NUMBER, TRANSACTION_ID NUMBER, TRANSACTION_DATE TEXT, _AB_SOURCE_FILE_URL TEXT, _AB_SOURCE_FILE_LAST_MODIFIED TEXT]
+[2024-07-09T10:01:13.762+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.763+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [_AIRBYTE_RAW_ID TEXT, _AIRBYTE_EXTRACTED_AT TIMESTAMP_TZ, _AIRBYTE_META VARIANT, AMOUNT FLOAT, USER_ID NUMBER, TRANSACTION_ID NUMBER, TRANSACTION_DATE TEXT, _AB_SOURCE_FILE_URL TEXT, _AB_SOURCE_FILE_LAST_MODIFIED TEXT]
+[2024-07-09T10:01:13.764+0000] {process_utils.py:190} INFO - INFO   |       Duplicate transaction IDs [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.764+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.765+0000] {process_utils.py:190} INFO - INFO   |       Transaction IDs cannot be null [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.765+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.765+0000] {process_utils.py:190} INFO - INFO   |       Duplicate transaction ids [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.766+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.766+0000] {process_utils.py:190} INFO - INFO   |       Transactions ids missing in customer_transactions [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.767+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.767+0000] {process_utils.py:190} INFO - INFO   |       User IDs cannot be null [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.768+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.769+0000] {process_utils.py:190} INFO - INFO   |       User ids missing in customer_transactions [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.769+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.770+0000] {process_utils.py:190} INFO - INFO   |       Transaction date cannot be null [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.770+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.771+0000] {process_utils.py:190} INFO - INFO   |       transaction_date missing in customer_transactions [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.771+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.772+0000] {process_utils.py:190} INFO - INFO   |       Amount cannot be null [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.772+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.773+0000] {process_utils.py:190} INFO - INFO   |       amount missing in customer_transactions [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:01:13.774+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.774+0000] {process_utils.py:190} INFO - INFO   | 2/14 checks FAILED:
+[2024-07-09T10:01:13.774+0000] {process_utils.py:190} INFO - INFO   |     customer_transactions in staging
+[2024-07-09T10:01:13.775+0000] {process_utils.py:190} INFO - INFO   |       Table is empty [include/soda/checks/tables/labeled_transactions.yml] [FAILED]
+[2024-07-09T10:01:13.775+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.776+0000] {process_utils.py:190} INFO - INFO   |       Table is empty [include/soda/checks/tables/customer_transactions.yml] [FAILED]
+[2024-07-09T10:01:13.776+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:01:13.777+0000] {process_utils.py:190} INFO - INFO   | Oops! 2 failures. 0 warnings. 0 errors. 12 pass.
+[2024-07-09T10:01:13.777+0000] {process_utils.py:190} INFO - Traceback (most recent call last):
+[2024-07-09T10:01:13.778+0000] {process_utils.py:190} INFO -   File "/tmp/venv-calla67qif7z/script.py", line 50, in <module>
+[2024-07-09T10:01:13.779+0000] {process_utils.py:190} INFO -     res = audit_customer_transactions(*arg_dict["args"], **arg_dict["kwargs"])
+[2024-07-09T10:01:13.779+0000] {process_utils.py:190} INFO -   File "/tmp/venv-calla67qif7z/script.py", line 23, in audit_customer_transactions
+[2024-07-09T10:01:13.780+0000] {process_utils.py:190} INFO -     check(scan_name, checks_subpath, data_source)
+[2024-07-09T10:01:13.780+0000] {process_utils.py:190} INFO -   File "/opt/airflow/include/soda/helpers.py", line 22, in check
+[2024-07-09T10:01:13.781+0000] {process_utils.py:190} INFO -     raise ValueError('Soda Scan failed')
+[2024-07-09T10:01:13.781+0000] {process_utils.py:190} INFO - ValueError: Soda Scan failed
+[2024-07-09T10:01:13.929+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 401, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 861, in execute_callable
+    return self._execute_python_callable_in_subprocess(python_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 478, in _execute_python_callable_in_subprocess
+    raise AirflowException(error_msg) from None
+airflow.exceptions.AirflowException: Process returned non-zero exit status 1.
+Soda Scan failed
+[2024-07-09T10:01:13.934+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_metrics, task_id=audit_customer_transactions, execution_date=20240708T000000, start_date=20240709T100109, end_date=20240709T100113
+[2024-07-09T10:01:13.952+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 165 for task audit_customer_transactions (Process returned non-zero exit status 1.
+Soda Scan failed; 4855)
+[2024-07-09T10:01:13.978+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-09T10:01:14.004+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

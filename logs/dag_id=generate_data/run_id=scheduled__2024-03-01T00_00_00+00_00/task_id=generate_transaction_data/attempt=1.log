@@ -1,0 +1,36 @@
+[2024-03-02T21:23:50.071+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_data.generate_transaction_data scheduled__2024-03-01T00:00:00+00:00 [queued]>
+[2024-03-02T21:23:50.076+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_data.generate_transaction_data scheduled__2024-03-01T00:00:00+00:00 [queued]>
+[2024-03-02T21:23:50.076+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-02T21:23:50.085+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonDecoratedOperator): generate_transaction_data> on 2024-03-01 00:00:00+00:00
+[2024-03-02T21:23:50.088+0000] {standard_task_runner.py:60} INFO - Started process 223 to run task
+[2024-03-02T21:23:50.091+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'generate_data', 'generate_transaction_data', 'scheduled__2024-03-01T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/generate-data.py', '--cfg-path', '/tmp/tmp9g61fcgn']
+[2024-03-02T21:23:50.093+0000] {standard_task_runner.py:88} INFO - Job 11: Subtask generate_transaction_data
+[2024-03-02T21:23:50.127+0000] {task_command.py:423} INFO - Running <TaskInstance: generate_data.generate_transaction_data scheduled__2024-03-01T00:00:00+00:00 [running]> on host 6e738af63ae6
+[2024-03-02T21:23:50.177+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='generate_data' AIRFLOW_CTX_TASK_ID='generate_transaction_data' AIRFLOW_CTX_EXECUTION_DATE='2024-03-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-01T00:00:00+00:00'
+[2024-03-02T21:23:50.181+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/generate-data.py", line 12, in generate_transaction_data
+    _generate_transaction_data(data_interval_start)
+  File "/opt/airflow/include/scripts/transaction_generator.py", line 77, in main
+    transactions = generate_transaction_data(user_id, random.randint(5, 20))  # Each user gets 5 to 20 transactions
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: generate_transaction_data() missing 1 required positional argument: 'data_interval_start'
+[2024-03-02T21:23:50.186+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=generate_data, task_id=generate_transaction_data, execution_date=20240301T000000, start_date=20240302T212350, end_date=20240302T212350
+[2024-03-02T21:23:50.193+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 11 for task generate_transaction_data (generate_transaction_data() missing 1 required positional argument: 'data_interval_start'; 223)
+[2024-03-02T21:23:50.230+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-03-02T21:23:50.243+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

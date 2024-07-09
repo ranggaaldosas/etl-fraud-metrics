@@ -1,0 +1,104 @@
+[2024-07-09T04:49:12.099+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.audit_customer_transactions manual__2024-07-09T04:47:35.043810+00:00 [queued]>
+[2024-07-09T04:49:12.112+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.audit_customer_transactions manual__2024-07-09T04:47:35.043810+00:00 [queued]>
+[2024-07-09T04:49:12.113+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T04:49:12.132+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonExternalDecoratedOperator): audit_customer_transactions> on 2024-07-09 04:47:35.043810+00:00
+[2024-07-09T04:49:12.140+0000] {standard_task_runner.py:60} INFO - Started process 1430 to run task
+[2024-07-09T04:49:12.144+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'audit_customer_transactions', 'manual__2024-07-09T04:47:35.043810+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmp5_ff3vkn']
+[2024-07-09T04:49:12.146+0000] {standard_task_runner.py:88} INFO - Job 31: Subtask audit_customer_transactions
+[2024-07-09T04:49:12.206+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.audit_customer_transactions manual__2024-07-09T04:47:35.043810+00:00 [running]> on host 3726baa263d6
+[2024-07-09T04:49:12.295+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='audit_customer_transactions' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T04:47:35.043810+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T04:47:35.043810+00:00'
+[2024-07-09T04:49:12.335+0000] {python.py:913} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-09T04:49:12.337+0000] {python.py:914} WARNING - This means that Airflow is not properly installed by  /opt/airflow/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.2 in your environment to access them.
+[2024-07-09T04:49:12.401+0000] {process_utils.py:182} INFO - Executing cmd: /opt/airflow/soda_venv/bin/python /tmp/venv-callll6h3iwz/script.py /tmp/venv-callll6h3iwz/script.in /tmp/venv-callll6h3iwz/script.out /tmp/venv-callll6h3iwz/string_args.txt /tmp/venv-callll6h3iwz/termination.log
+[2024-07-09T04:49:12.413+0000] {process_utils.py:186} INFO - Output:
+[2024-07-09T04:49:13.576+0000] {process_utils.py:190} INFO - [04:49:13] Could not connect to data source "staging": 251005: User is empty
+[2024-07-09T04:49:13.577+0000] {process_utils.py:190} INFO -   | 251005: User is empty
+[2024-07-09T04:49:13.578+0000] {process_utils.py:190} INFO -   | Stacktrace:
+[2024-07-09T04:49:13.578+0000] {process_utils.py:190} INFO -   | Traceback (most recent call last):
+[2024-07-09T04:49:13.579+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/soda/execution/data_source_manager.py", line 48, in get_data_source
+[2024-07-09T04:49:13.579+0000] {process_utils.py:190} INFO -   |     data_source.connect()
+[2024-07-09T04:49:13.580+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/soda/data_sources/snowflake_data_source.py", line 100, in connect
+[2024-07-09T04:49:13.580+0000] {process_utils.py:190} INFO -   |     self.connection = connector.connect(
+[2024-07-09T04:49:13.580+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/__init__.py", line 55, in Connect
+[2024-07-09T04:49:13.581+0000] {process_utils.py:190} INFO -   |     return SnowflakeConnection(**kwargs)
+[2024-07-09T04:49:13.581+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 442, in __init__
+[2024-07-09T04:49:13.582+0000] {process_utils.py:190} INFO -   |     self.connect(**kwargs)
+[2024-07-09T04:49:13.583+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 707, in connect
+[2024-07-09T04:49:13.583+0000] {process_utils.py:190} INFO -   |     self.__config(**kwargs)
+[2024-07-09T04:49:13.583+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 1188, in __config
+[2024-07-09T04:49:13.584+0000] {process_utils.py:190} INFO -   |     Error.errorhandler_wrapper(
+[2024-07-09T04:49:13.584+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+[2024-07-09T04:49:13.586+0000] {process_utils.py:190} INFO -   |     handed_over = Error.hand_to_other_handler(
+[2024-07-09T04:49:13.586+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 348, in hand_to_other_handler
+[2024-07-09T04:49:13.587+0000] {process_utils.py:190} INFO -   |     connection.errorhandler(connection, cursor, error_class, error_value)
+[2024-07-09T04:49:13.587+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+[2024-07-09T04:49:13.587+0000] {process_utils.py:190} INFO -   |     raise error_class(
+[2024-07-09T04:49:13.588+0000] {process_utils.py:190} INFO -   | snowflake.connector.errors.ProgrammingError: 251005: User is empty
+[2024-07-09T04:49:13.588+0000] {process_utils.py:190} INFO - 
+[2024-07-09T04:49:13.588+0000] {process_utils.py:190} INFO - [04:49:13] No valid checks found, 0 checks evaluated.
+[2024-07-09T04:49:13.589+0000] {process_utils.py:190} INFO - [04:49:13] Could not connect to data source "staging": 251005: User is empty
+[2024-07-09T04:49:13.589+0000] {process_utils.py:190} INFO -   | 251005: User is empty
+[2024-07-09T04:49:13.589+0000] {process_utils.py:190} INFO -   | Stacktrace:
+[2024-07-09T04:49:13.590+0000] {process_utils.py:190} INFO -   | Traceback (most recent call last):
+[2024-07-09T04:49:13.591+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/soda/execution/data_source_manager.py", line 48, in get_data_source
+[2024-07-09T04:49:13.591+0000] {process_utils.py:190} INFO -   |     data_source.connect()
+[2024-07-09T04:49:13.592+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/soda/data_sources/snowflake_data_source.py", line 100, in connect
+[2024-07-09T04:49:13.592+0000] {process_utils.py:190} INFO -   |     self.connection = connector.connect(
+[2024-07-09T04:49:13.593+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/__init__.py", line 55, in Connect
+[2024-07-09T04:49:13.593+0000] {process_utils.py:190} INFO -   |     return SnowflakeConnection(**kwargs)
+[2024-07-09T04:49:13.593+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 442, in __init__
+[2024-07-09T04:49:13.594+0000] {process_utils.py:190} INFO -   |     self.connect(**kwargs)
+[2024-07-09T04:49:13.594+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 707, in connect
+[2024-07-09T04:49:13.595+0000] {process_utils.py:190} INFO -   |     self.__config(**kwargs)
+[2024-07-09T04:49:13.595+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/connection.py", line 1188, in __config
+[2024-07-09T04:49:13.595+0000] {process_utils.py:190} INFO -   |     Error.errorhandler_wrapper(
+[2024-07-09T04:49:13.596+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+[2024-07-09T04:49:13.596+0000] {process_utils.py:190} INFO -   |     handed_over = Error.hand_to_other_handler(
+[2024-07-09T04:49:13.597+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 348, in hand_to_other_handler
+[2024-07-09T04:49:13.597+0000] {process_utils.py:190} INFO -   |     connection.errorhandler(connection, cursor, error_class, error_value)
+[2024-07-09T04:49:13.598+0000] {process_utils.py:190} INFO -   |   File "/opt/airflow/soda_venv/lib/python3.8/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+[2024-07-09T04:49:13.598+0000] {process_utils.py:190} INFO -   |     raise error_class(
+[2024-07-09T04:49:13.598+0000] {process_utils.py:190} INFO -   | snowflake.connector.errors.ProgrammingError: 251005: User is empty
+[2024-07-09T04:49:13.599+0000] {process_utils.py:190} INFO - 
+[2024-07-09T04:49:13.600+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-09T04:49:13.601+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.2.2
+[2024-07-09T04:49:13.601+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "include/soda/configuration.yml"
+[2024-07-09T04:49:13.602+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "include/soda/checks/tables/labeled_transactions.yml"
+[2024-07-09T04:49:13.602+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "include/soda/checks/tables/customer_transactions.yml"
+[2024-07-09T04:49:13.602+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-09T04:49:13.603+0000] {process_utils.py:190} INFO - ERROR  | Could not connect to data source "staging": 251005: User is empty | 251005: User is empty
+[2024-07-09T04:49:13.604+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-09T04:49:13.604+0000] {process_utils.py:190} INFO - WARNING| No valid checks found, 0 checks evaluated.
+[2024-07-09T04:49:13.604+0000] {process_utils.py:190} INFO - INFO   | 1 errors.
+[2024-07-09T04:49:13.605+0000] {process_utils.py:190} INFO - INFO   | Oops! 1 error. 0 failures. 0 warnings. 0 pass.
+[2024-07-09T04:49:13.605+0000] {process_utils.py:190} INFO - Traceback (most recent call last):
+[2024-07-09T04:49:13.606+0000] {process_utils.py:190} INFO -   File "/tmp/venv-callll6h3iwz/script.py", line 50, in <module>
+[2024-07-09T04:49:13.606+0000] {process_utils.py:190} INFO -     res = audit_customer_transactions(*arg_dict["args"], **arg_dict["kwargs"])
+[2024-07-09T04:49:13.606+0000] {process_utils.py:190} INFO -   File "/tmp/venv-callll6h3iwz/script.py", line 23, in audit_customer_transactions
+[2024-07-09T04:49:13.608+0000] {process_utils.py:190} INFO -     check(scan_name, checks_subpath, data_source)
+[2024-07-09T04:49:13.609+0000] {process_utils.py:190} INFO -   File "/opt/airflow/include/soda/helpers.py", line 22, in check
+[2024-07-09T04:49:13.609+0000] {process_utils.py:190} INFO -     raise ValueError('Soda Scan failed')
+[2024-07-09T04:49:13.610+0000] {process_utils.py:190} INFO - ValueError: Soda Scan failed
+[2024-07-09T04:49:13.784+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 401, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 861, in execute_callable
+    return self._execute_python_callable_in_subprocess(python_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 478, in _execute_python_callable_in_subprocess
+    raise AirflowException(error_msg) from None
+airflow.exceptions.AirflowException: Process returned non-zero exit status 1.
+Soda Scan failed
+[2024-07-09T04:49:13.789+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_metrics, task_id=audit_customer_transactions, execution_date=20240709T044735, start_date=20240709T044912, end_date=20240709T044913
+[2024-07-09T04:49:13.806+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 31 for task audit_customer_transactions (Process returned non-zero exit status 1.
+Soda Scan failed; 1430)
+[2024-07-09T04:49:13.845+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-09T04:49:13.871+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

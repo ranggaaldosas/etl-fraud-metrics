@@ -1,0 +1,83 @@
+[2024-07-09T09:27:39.846+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.load_labeled_transactions_raw manual__2024-07-09T09:27:29.849481+00:00 [queued]>
+[2024-07-09T09:27:39.855+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.load_labeled_transactions_raw manual__2024-07-09T09:27:29.849481+00:00 [queued]>
+[2024-07-09T09:27:39.856+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T09:27:39.870+0000] {taskinstance.py:2214} INFO - Executing <Task(AirbyteTriggerSyncOperator): load_labeled_transactions_raw> on 2024-07-09 09:27:29.849481+00:00
+[2024-07-09T09:27:39.876+0000] {standard_task_runner.py:60} INFO - Started process 759 to run task
+[2024-07-09T09:27:39.878+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'load_labeled_transactions_raw', 'manual__2024-07-09T09:27:29.849481+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmpeansw6ra']
+[2024-07-09T09:27:39.880+0000] {standard_task_runner.py:88} INFO - Job 124: Subtask load_labeled_transactions_raw
+[2024-07-09T09:27:39.932+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.load_labeled_transactions_raw manual__2024-07-09T09:27:29.849481+00:00 [running]> on host 3726baa263d6
+[2024-07-09T09:27:40.012+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='load_labeled_transactions_raw' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T09:27:29.849481+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T09:27:29.849481+00:00'
+[2024-07-09T09:27:40.022+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T09:27:43.765+0000] {http.py:235} WARNING - HTTPConnectionPool(host='airbyte-server', port=8001): Max retries exceeded with url: /api/v1/connections/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9e2701c280>: Failed to establish a new connection: [Errno -2] Name or service not known')) Tenacity will retry to execute the operation
+[2024-07-09T09:27:43.768+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 416, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f9e2701c280>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='airbyte-server', port=8001): Max retries exceeded with url: /api/v1/connections/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9e2701c280>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/airbyte/operators/airbyte.py", line 81, in execute
+    job_object = hook.submit_sync_connection(connection_id=self.connection_id)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/airbyte/hooks/airbyte.py", line 149, in submit_sync_connection
+    return self.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 180, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 236, in run_and_check
+    raise ex
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/http/hooks/http.py", line 228, in run_and_check
+    response = session.send(prepped_request, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='airbyte-server', port=8001): Max retries exceeded with url: /api/v1/connections/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9e2701c280>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2024-07-09T09:27:43.790+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_metrics, task_id=load_labeled_transactions_raw, execution_date=20240709T092729, start_date=20240709T092739, end_date=20240709T092743
+[2024-07-09T09:27:43.812+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 124 for task load_labeled_transactions_raw (HTTPConnectionPool(host='airbyte-server', port=8001): Max retries exceeded with url: /api/v1/connections/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f9e2701c280>: Failed to establish a new connection: [Errno -2] Name or service not known')); 759)
+[2024-07-09T09:27:43.829+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-09T09:27:43.861+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

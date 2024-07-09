@@ -1,0 +1,14 @@
+[2024-07-09T04:49:01.811+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.airbyte_job_complete manual__2024-07-09T04:47:35.043810+00:00 [queued]>
+[2024-07-09T04:49:01.821+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.airbyte_job_complete manual__2024-07-09T04:47:35.043810+00:00 [queued]>
+[2024-07-09T04:49:01.823+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T04:49:01.839+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonDecoratedOperator): airbyte_job_complete> on 2024-07-09 04:47:35.043810+00:00
+[2024-07-09T04:49:01.847+0000] {standard_task_runner.py:60} INFO - Started process 1329 to run task
+[2024-07-09T04:49:01.850+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'airbyte_job_complete', 'manual__2024-07-09T04:47:35.043810+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmpal3w9cp_']
+[2024-07-09T04:49:01.853+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask airbyte_job_complete
+[2024-07-09T04:49:01.907+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.airbyte_job_complete manual__2024-07-09T04:47:35.043810+00:00 [running]> on host 3726baa263d6
+[2024-07-09T04:49:01.993+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='airbyte_job_complete' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T04:47:35.043810+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T04:47:35.043810+00:00'
+[2024-07-09T04:49:01.995+0000] {logging_mixin.py:188} INFO - All Airbyte jobs are complete
+[2024-07-09T04:49:01.996+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-07-09T04:49:02.007+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_metrics, task_id=airbyte_job_complete, execution_date=20240709T044735, start_date=20240709T044901, end_date=20240709T044902
+[2024-07-09T04:49:02.063+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-09T04:49:02.093+0000] {taskinstance.py:3309} INFO - 2 downstream tasks scheduled from follow-on schedule check

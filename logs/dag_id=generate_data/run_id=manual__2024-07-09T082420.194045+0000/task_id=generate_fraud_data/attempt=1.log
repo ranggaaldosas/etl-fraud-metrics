@@ -1,0 +1,14 @@
+[2024-07-09T08:24:23.174+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_data.generate_fraud_data manual__2024-07-09T08:24:20.194045+00:00 [queued]>
+[2024-07-09T08:24:23.182+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_data.generate_fraud_data manual__2024-07-09T08:24:20.194045+00:00 [queued]>
+[2024-07-09T08:24:23.182+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T08:24:23.250+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonDecoratedOperator): generate_fraud_data> on 2024-07-09 08:24:20.194045+00:00
+[2024-07-09T08:24:23.256+0000] {standard_task_runner.py:60} INFO - Started process 565 to run task
+[2024-07-09T08:24:23.258+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'generate_data', 'generate_fraud_data', 'manual__2024-07-09T08:24:20.194045+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/generate_data.py', '--cfg-path', '/tmp/tmpuu0_gook']
+[2024-07-09T08:24:23.261+0000] {standard_task_runner.py:88} INFO - Job 36: Subtask generate_fraud_data
+[2024-07-09T08:24:23.314+0000] {task_command.py:423} INFO - Running <TaskInstance: generate_data.generate_fraud_data manual__2024-07-09T08:24:20.194045+00:00 [running]> on host 3726baa263d6
+[2024-07-09T08:24:23.391+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='generate_data' AIRFLOW_CTX_TASK_ID='generate_fraud_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T08:24:20.194045+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T08:24:20.194045+00:00'
+[2024-07-09T08:24:23.584+0000] {logging_mixin.py:188} INFO - Error inserting labeled transaction data: 1062 (23000): Duplicate entry '124' for key 'labeled_transactions.PRIMARY'
+[2024-07-09T08:24:23.586+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-07-09T08:24:23.595+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=generate_data, task_id=generate_fraud_data, execution_date=20240709T082420, start_date=20240709T082423, end_date=20240709T082423
+[2024-07-09T08:24:23.633+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-09T08:24:23.648+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

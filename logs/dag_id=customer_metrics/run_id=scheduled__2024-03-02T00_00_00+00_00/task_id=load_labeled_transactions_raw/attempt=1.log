@@ -1,0 +1,127 @@
+[2024-03-03T21:46:41.459+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.load_labeled_transactions_raw scheduled__2024-03-02T00:00:00+00:00 [queued]>
+[2024-03-03T21:46:41.464+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.load_labeled_transactions_raw scheduled__2024-03-02T00:00:00+00:00 [queued]>
+[2024-03-03T21:46:41.465+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-03T21:46:41.476+0000] {taskinstance.py:2214} INFO - Executing <Task(AirbyteTriggerSyncOperator): load_labeled_transactions_raw> on 2024-03-02 00:00:00+00:00
+[2024-03-03T21:46:41.481+0000] {standard_task_runner.py:60} INFO - Started process 5397 to run task
+[2024-03-03T21:46:41.484+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'load_labeled_transactions_raw', 'scheduled__2024-03-02T00:00:00+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmphn_e0nlc']
+[2024-03-03T21:46:41.486+0000] {standard_task_runner.py:88} INFO - Job 27: Subtask load_labeled_transactions_raw
+[2024-03-03T21:46:41.518+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.load_labeled_transactions_raw scheduled__2024-03-02T00:00:00+00:00 [running]> on host 89c908705547
+[2024-03-03T21:46:41.663+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='load_labeled_transactions_raw' AIRFLOW_CTX_EXECUTION_DATE='2024-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-02T00:00:00+00:00'
+[2024-03-03T21:46:41.673+0000] {connection.py:508} ERROR - Unable to retrieve connection from secrets backend (MetastoreBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column connection.password does not exist
+LINE 1: SELECT connection.password, connection.extra, connection.id,...
+               ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/connection.py", line 503, in get_connection_from_secrets
+    conn = secrets_backend.get_connection(conn_id=conn_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 79, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/secrets/metastore.py", line 42, in get_connection
+    return MetastoreBackend._fetch_connection(conn_id, session=session)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/api_internal/internal_api_call.py", line 114, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/secrets/metastore.py", line 73, in _fetch_connection
+    conn = session.scalar(select(Connection).where(Connection.conn_id == conn_id).limit(1))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1747, in scalar
+    return self.execute(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1717, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column connection.password does not exist
+LINE 1: SELECT connection.password, connection.extra, connection.id,...
+               ^
+
+[SQL: SELECT connection.password, connection.extra, connection.id, connection.conn_id, connection.conn_type, connection.description, connection.host, connection.schema, connection.login, connection.port, connection.is_encrypted, connection.is_extra_encrypted 
+FROM connection 
+WHERE connection.conn_id = %(conn_id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'conn_id_1': 'airbyte', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2024-03-03T21:46:41.751+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/airbyte/operators/airbyte.py", line 81, in execute
+    job_object = hook.submit_sync_connection(connection_id=self.connection_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/airbyte/hooks/airbyte.py", line 149, in submit_sync_connection
+    return self.run(
+           ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/http/hooks/http.py", line 159, in run
+    session = self.get_conn(headers)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/http/hooks/http.py", line 101, in get_conn
+    conn = self.get_connection(self.http_conn_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/hooks/base.py", line 82, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/connection.py", line 514, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `airbyte` isn't defined
+[2024-03-03T21:46:41.757+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_metrics, task_id=load_labeled_transactions_raw, execution_date=20240302T000000, start_date=20240303T214641, end_date=20240303T214641
+[2024-03-03T21:46:41.768+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 27 for task load_labeled_transactions_raw (The conn_id `airbyte` isn't defined; 5397)
+[2024-03-03T21:46:41.817+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-03-03T21:46:41.833+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-03-03T22:19:23.305+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.load_labeled_transactions_raw scheduled__2024-03-02T00:00:00+00:00 [queued]>
+[2024-03-03T22:19:23.309+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.load_labeled_transactions_raw scheduled__2024-03-02T00:00:00+00:00 [queued]>
+[2024-03-03T22:19:23.309+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-03T22:19:23.316+0000] {taskinstance.py:2214} INFO - Executing <Task(AirbyteTriggerSyncOperator): load_labeled_transactions_raw> on 2024-03-02 00:00:00+00:00
+[2024-03-03T22:19:23.319+0000] {standard_task_runner.py:60} INFO - Started process 513 to run task
+[2024-03-03T22:19:23.321+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'load_labeled_transactions_raw', 'scheduled__2024-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmpqpshg5v1']
+[2024-03-03T22:19:23.323+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask load_labeled_transactions_raw
+[2024-03-03T22:19:23.350+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.load_labeled_transactions_raw scheduled__2024-03-02T00:00:00+00:00 [running]> on host 713bfe0e4459
+[2024-03-03T22:19:23.397+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='load_labeled_transactions_raw' AIRFLOW_CTX_EXECUTION_DATE='2024-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-02T00:00:00+00:00'
+[2024-03-03T22:19:23.403+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-03-03T22:19:24.517+0000] {airbyte.py:86} INFO - Job 43 was submitted to Airbyte Server
+[2024-03-03T22:19:24.518+0000] {airbyte.py:88} INFO - Waiting for job 43 to complete
+[2024-03-03T22:19:27.527+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-03-03T22:19:30.560+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-03-03T22:19:33.735+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-03-03T22:19:37.504+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-03-03T22:19:40.678+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-03-03T22:19:40.698+0000] {airbyte.py:112} INFO - Job 43 completed successfully
+[2024-03-03T22:19:40.723+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_metrics, task_id=load_labeled_transactions_raw, execution_date=20240302T000000, start_date=20240303T221923, end_date=20240303T221940
+[2024-03-03T22:19:40.738+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-03T22:19:40.758+0000] {taskinstance.py:3309} INFO - 1 downstream tasks scheduled from follow-on schedule check

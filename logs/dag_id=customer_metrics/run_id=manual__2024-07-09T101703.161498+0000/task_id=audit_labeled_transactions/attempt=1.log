@@ -1,0 +1,97 @@
+[2024-07-09T10:18:37.387+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.audit_labeled_transactions manual__2024-07-09T10:17:03.161498+00:00 [queued]>
+[2024-07-09T10:18:37.396+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.audit_labeled_transactions manual__2024-07-09T10:17:03.161498+00:00 [queued]>
+[2024-07-09T10:18:37.397+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T10:18:37.411+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonExternalDecoratedOperator): audit_labeled_transactions> on 2024-07-09 10:17:03.161498+00:00
+[2024-07-09T10:18:37.419+0000] {standard_task_runner.py:60} INFO - Started process 699 to run task
+[2024-07-09T10:18:37.422+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'audit_labeled_transactions', 'manual__2024-07-09T10:17:03.161498+00:00', '--job-id', '174', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmp048ybpbm']
+[2024-07-09T10:18:37.427+0000] {standard_task_runner.py:88} INFO - Job 174: Subtask audit_labeled_transactions
+[2024-07-09T10:18:37.493+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.audit_labeled_transactions manual__2024-07-09T10:17:03.161498+00:00 [running]> on host 428c62206da4
+[2024-07-09T10:18:37.573+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='audit_labeled_transactions' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T10:17:03.161498+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T10:17:03.161498+00:00'
+[2024-07-09T10:18:37.616+0000] {python.py:913} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-09T10:18:37.618+0000] {python.py:914} WARNING - This means that Airflow is not properly installed by  /opt/airflow/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.2 in your environment to access them.
+[2024-07-09T10:18:37.688+0000] {process_utils.py:182} INFO - Executing cmd: /opt/airflow/soda_venv/bin/python /tmp/venv-calli4res9ww/script.py /tmp/venv-calli4res9ww/script.in /tmp/venv-calli4res9ww/script.out /tmp/venv-calli4res9ww/string_args.txt /tmp/venv-calli4res9ww/termination.log
+[2024-07-09T10:18:37.699+0000] {process_utils.py:186} INFO - Output:
+[2024-07-09T10:18:42.006+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-09T10:18:42.007+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.2.2
+[2024-07-09T10:18:42.008+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "include/soda/configuration.yml"
+[2024-07-09T10:18:42.008+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "include/soda/checks/tables/labeled_transactions.yml"
+[2024-07-09T10:18:42.009+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "include/soda/checks/tables/customer_transactions.yml"
+[2024-07-09T10:18:42.009+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-09T10:18:42.010+0000] {process_utils.py:190} INFO - DEBUG  | Query staging.customer_transactions.aggregation[0]:
+[2024-07-09T10:18:42.010+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-09T10:18:42.010+0000] {process_utils.py:190} INFO -   COUNT(*),
+[2024-07-09T10:18:42.011+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN transaction_id IS NULL THEN 1 END),
+[2024-07-09T10:18:42.011+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN user_id IS NULL THEN 1 END),
+[2024-07-09T10:18:42.012+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN transaction_date IS NULL THEN 1 END),
+[2024-07-09T10:18:42.012+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN amount IS NULL THEN 1 END)
+[2024-07-09T10:18:42.012+0000] {process_utils.py:190} INFO - FROM AIRBYTE_DATABASE.STAGING.customer_transactions
+[2024-07-09T10:18:42.013+0000] {process_utils.py:190} INFO - DEBUG  | Query staging.customer_transactions.transaction_id.duplicate_count:
+[2024-07-09T10:18:42.014+0000] {process_utils.py:190} INFO - 
+[2024-07-09T10:18:42.014+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-09T10:18:42.015+0000] {process_utils.py:190} INFO -     SELECT COUNT(*) AS frequency
+[2024-07-09T10:18:42.015+0000] {process_utils.py:190} INFO -     FROM AIRBYTE_DATABASE.STAGING.customer_transactions
+[2024-07-09T10:18:42.016+0000] {process_utils.py:190} INFO -     WHERE transaction_id IS NOT NULL
+[2024-07-09T10:18:42.016+0000] {process_utils.py:190} INFO -     GROUP BY transaction_id)
+[2024-07-09T10:18:42.017+0000] {process_utils.py:190} INFO - SELECT COUNT(*)
+[2024-07-09T10:18:42.017+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-09T10:18:42.017+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-09T10:18:42.018+0000] {process_utils.py:190} INFO - DEBUG  | Query staging.customer_transactions.duplicate_count[transaction_id].failed_rows.aggregated:
+[2024-07-09T10:18:42.018+0000] {process_utils.py:190} INFO - 
+[2024-07-09T10:18:42.019+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-09T10:18:42.020+0000] {process_utils.py:190} INFO -     SELECT transaction_id, COUNT(*) AS frequency
+[2024-07-09T10:18:42.021+0000] {process_utils.py:190} INFO -     FROM AIRBYTE_DATABASE.STAGING.customer_transactions
+[2024-07-09T10:18:42.021+0000] {process_utils.py:190} INFO -     WHERE transaction_id IS NOT NULL
+[2024-07-09T10:18:42.022+0000] {process_utils.py:190} INFO -     GROUP BY transaction_id)
+[2024-07-09T10:18:42.022+0000] {process_utils.py:190} INFO - SELECT *
+[2024-07-09T10:18:42.022+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-09T10:18:42.023+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-09T10:18:42.024+0000] {process_utils.py:190} INFO - ORDER BY frequency DESC
+[2024-07-09T10:18:42.024+0000] {process_utils.py:190} INFO - LIMIT 100
+[2024-07-09T10:18:42.024+0000] {process_utils.py:190} INFO - DEBUG  | Query staging.customer_transactions.schema[customer_transactions]:
+[2024-07-09T10:18:42.025+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-09T10:18:42.025+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-09T10:18:42.026+0000] {process_utils.py:190} INFO - WHERE upper(table_name) = 'CUSTOMER_TRANSACTIONS'
+[2024-07-09T10:18:42.026+0000] {process_utils.py:190} INFO -   AND upper(table_catalog) = 'AIRBYTE_DATABASE'
+[2024-07-09T10:18:42.027+0000] {process_utils.py:190} INFO -   AND upper(table_schema) = 'STAGING'
+[2024-07-09T10:18:42.027+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-09T10:18:42.027+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-09T10:18:42.028+0000] {process_utils.py:190} INFO - DEBUG  | 4/4 queries OK
+[2024-07-09T10:18:42.028+0000] {process_utils.py:190} INFO - DEBUG  |   staging.customer_transactions.aggregation[0] [OK] 0:00:00.097813
+[2024-07-09T10:18:42.029+0000] {process_utils.py:190} INFO - DEBUG  |   staging.customer_transactions.transaction_id.duplicate_count [OK] 0:00:00.088500
+[2024-07-09T10:18:42.029+0000] {process_utils.py:190} INFO - DEBUG  |   staging.customer_transactions.duplicate_count[transaction_id].failed_rows.aggregated [OK] 0:00:00.068539
+[2024-07-09T10:18:42.029+0000] {process_utils.py:190} INFO - DEBUG  |   staging.customer_transactions.schema[customer_transactions] [OK] 0:00:00.918271
+[2024-07-09T10:18:42.030+0000] {process_utils.py:190} INFO - INFO   | 14/14 checks PASSED:
+[2024-07-09T10:18:42.030+0000] {process_utils.py:190} INFO - INFO   |     customer_transactions in staging
+[2024-07-09T10:18:42.030+0000] {process_utils.py:190} INFO - INFO   |       Table is empty [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.031+0000] {process_utils.py:190} INFO - INFO   |         check_value: 382
+[2024-07-09T10:18:42.031+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.032+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [_AIRBYTE_RAW_ID TEXT, _AIRBYTE_EXTRACTED_AT TIMESTAMP_TZ, _AIRBYTE_META VARIANT, AMOUNT FLOAT, USER_ID NUMBER, TRANSACTION_ID NUMBER, TRANSACTION_DATE TEXT, _AB_SOURCE_FILE_URL TEXT, _AB_SOURCE_FILE_LAST_MODIFIED TEXT]
+[2024-07-09T10:18:42.033+0000] {process_utils.py:190} INFO - INFO   |       Table is empty [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.034+0000] {process_utils.py:190} INFO - INFO   |         check_value: 382
+[2024-07-09T10:18:42.035+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.035+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [_AIRBYTE_RAW_ID TEXT, _AIRBYTE_EXTRACTED_AT TIMESTAMP_TZ, _AIRBYTE_META VARIANT, AMOUNT FLOAT, USER_ID NUMBER, TRANSACTION_ID NUMBER, TRANSACTION_DATE TEXT, _AB_SOURCE_FILE_URL TEXT, _AB_SOURCE_FILE_LAST_MODIFIED TEXT]
+[2024-07-09T10:18:42.036+0000] {process_utils.py:190} INFO - INFO   |       Duplicate transaction IDs [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.036+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.037+0000] {process_utils.py:190} INFO - INFO   |       Transaction IDs cannot be null [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.038+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.038+0000] {process_utils.py:190} INFO - INFO   |       Duplicate transaction ids [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.039+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.039+0000] {process_utils.py:190} INFO - INFO   |       Transactions ids missing in customer_transactions [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.040+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.041+0000] {process_utils.py:190} INFO - INFO   |       User IDs cannot be null [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.041+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.042+0000] {process_utils.py:190} INFO - INFO   |       User ids missing in customer_transactions [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.042+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.043+0000] {process_utils.py:190} INFO - INFO   |       Transaction date cannot be null [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.043+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.044+0000] {process_utils.py:190} INFO - INFO   |       transaction_date missing in customer_transactions [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.045+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.045+0000] {process_utils.py:190} INFO - INFO   |       Amount cannot be null [include/soda/checks/tables/labeled_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.046+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.046+0000] {process_utils.py:190} INFO - INFO   |       amount missing in customer_transactions [include/soda/checks/tables/customer_transactions.yml] [PASSED]
+[2024-07-09T10:18:42.047+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-09T10:18:42.047+0000] {process_utils.py:190} INFO - INFO   | All is good. No failures. No warnings. No errors.
+[2024-07-09T10:18:42.149+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-07-09T10:18:42.160+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_metrics, task_id=audit_labeled_transactions, execution_date=20240709T101703, start_date=20240709T101837, end_date=20240709T101842
+[2024-07-09T10:18:42.181+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-09T10:18:42.222+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

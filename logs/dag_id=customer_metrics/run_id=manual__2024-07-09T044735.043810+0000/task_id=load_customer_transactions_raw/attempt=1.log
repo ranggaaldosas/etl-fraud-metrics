@@ -1,0 +1,23 @@
+[2024-07-09T04:47:45.339+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.load_customer_transactions_raw manual__2024-07-09T04:47:35.043810+00:00 [queued]>
+[2024-07-09T04:47:45.349+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.load_customer_transactions_raw manual__2024-07-09T04:47:35.043810+00:00 [queued]>
+[2024-07-09T04:47:45.349+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T04:47:45.364+0000] {taskinstance.py:2214} INFO - Executing <Task(AirbyteTriggerSyncOperator): load_customer_transactions_raw> on 2024-07-09 04:47:35.043810+00:00
+[2024-07-09T04:47:45.371+0000] {standard_task_runner.py:60} INFO - Started process 1130 to run task
+[2024-07-09T04:47:45.373+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'load_customer_transactions_raw', 'manual__2024-07-09T04:47:35.043810+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmpcrmf0jm5']
+[2024-07-09T04:47:45.375+0000] {standard_task_runner.py:88} INFO - Job 27: Subtask load_customer_transactions_raw
+[2024-07-09T04:47:45.423+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.load_customer_transactions_raw manual__2024-07-09T04:47:35.043810+00:00 [running]> on host 3726baa263d6
+[2024-07-09T04:47:45.508+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='load_customer_transactions_raw' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T04:47:35.043810+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T04:47:35.043810+00:00'
+[2024-07-09T04:47:45.521+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T04:47:51.642+0000] {airbyte.py:86} INFO - Job 64 was submitted to Airbyte Server
+[2024-07-09T04:47:51.642+0000] {airbyte.py:88} INFO - Waiting for job 64 to complete
+[2024-07-09T04:47:54.662+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T04:47:57.704+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T04:48:00.730+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T04:48:03.754+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T04:48:06.776+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T04:48:09.802+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T04:48:12.830+0000] {base.py:83} INFO - Using connection ID 'airbyte' for task execution.
+[2024-07-09T04:48:12.854+0000] {airbyte.py:112} INFO - Job 64 completed successfully
+[2024-07-09T04:48:12.884+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=customer_metrics, task_id=load_customer_transactions_raw, execution_date=20240709T044735, start_date=20240709T044745, end_date=20240709T044812
+[2024-07-09T04:48:12.909+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-09T04:48:12.940+0000] {taskinstance.py:3309} INFO - 1 downstream tasks scheduled from follow-on schedule check

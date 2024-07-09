@@ -1,0 +1,42 @@
+[2024-07-09T09:10:42.229+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: customer_metrics.audit_customer_transactions manual__2024-07-09T09:09:20.209974+00:00 [queued]>
+[2024-07-09T09:10:42.239+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: customer_metrics.audit_customer_transactions manual__2024-07-09T09:09:20.209974+00:00 [queued]>
+[2024-07-09T09:10:42.239+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-07-09T09:10:42.254+0000] {taskinstance.py:2214} INFO - Executing <Task(_PythonExternalDecoratedOperator): audit_customer_transactions> on 2024-07-09 09:09:20.209974+00:00
+[2024-07-09T09:10:42.261+0000] {standard_task_runner.py:60} INFO - Started process 3004 to run task
+[2024-07-09T09:10:42.264+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'customer_metrics', 'audit_customer_transactions', 'manual__2024-07-09T09:09:20.209974+00:00', '--job-id', '81', '--raw', '--subdir', 'DAGS_FOLDER/customer_metrics.py', '--cfg-path', '/tmp/tmp9t3zh9gb']
+[2024-07-09T09:10:42.267+0000] {standard_task_runner.py:88} INFO - Job 81: Subtask audit_customer_transactions
+[2024-07-09T09:10:42.316+0000] {task_command.py:423} INFO - Running <TaskInstance: customer_metrics.audit_customer_transactions manual__2024-07-09T09:09:20.209974+00:00 [running]> on host 3726baa263d6
+[2024-07-09T09:10:42.403+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='customer_metrics' AIRFLOW_CTX_TASK_ID='audit_customer_transactions' AIRFLOW_CTX_EXECUTION_DATE='2024-07-09T09:09:20.209974+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-09T09:09:20.209974+00:00'
+[2024-07-09T09:10:42.441+0000] {python.py:913} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-09T09:10:42.442+0000] {python.py:914} WARNING - This means that Airflow is not properly installed by  /opt/airflow/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.2 in your environment to access them.
+[2024-07-09T09:10:42.505+0000] {process_utils.py:182} INFO - Executing cmd: /opt/airflow/soda_venv/bin/python /tmp/venv-callv0ft7im9/script.py /tmp/venv-callv0ft7im9/script.in /tmp/venv-callv0ft7im9/script.out /tmp/venv-callv0ft7im9/string_args.txt /tmp/venv-callv0ft7im9/termination.log
+[2024-07-09T09:10:42.516+0000] {process_utils.py:186} INFO - Output:
+[2024-07-09T09:10:42.547+0000] {process_utils.py:190} INFO - Traceback (most recent call last):
+[2024-07-09T09:10:42.548+0000] {process_utils.py:190} INFO -   File "/tmp/venv-callv0ft7im9/script.py", line 27, in <module>
+[2024-07-09T09:10:42.549+0000] {process_utils.py:190} INFO -     unusual_prefix_1c6531da2290edf006fe0b7d5758e68923dbf633_customer_metrics.audit_customer_transactions = audit_customer_transactions
+[2024-07-09T09:10:42.549+0000] {process_utils.py:190} INFO - NameError: name 'audit_customer_transactions' is not defined
+[2024-07-09T09:10:42.551+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 401, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 861, in execute_callable
+    return self._execute_python_callable_in_subprocess(python_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 461, in _execute_python_callable_in_subprocess
+    execute_in_subprocess(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/process_utils.py", line 171, in execute_in_subprocess
+    execute_in_subprocess_with_kwargs(cmd, cwd=cwd)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/process_utils.py", line 194, in execute_in_subprocess_with_kwargs
+    raise subprocess.CalledProcessError(exit_code, cmd)
+subprocess.CalledProcessError: Command '['/opt/airflow/soda_venv/bin/python', '/tmp/venv-callv0ft7im9/script.py', '/tmp/venv-callv0ft7im9/script.in', '/tmp/venv-callv0ft7im9/script.out', '/tmp/venv-callv0ft7im9/string_args.txt', '/tmp/venv-callv0ft7im9/termination.log']' returned non-zero exit status 1.
+[2024-07-09T09:10:42.564+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=customer_metrics, task_id=audit_customer_transactions, execution_date=20240709T090920, start_date=20240709T091042, end_date=20240709T091042
+[2024-07-09T09:10:42.579+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 81 for task audit_customer_transactions (Command '['/opt/airflow/soda_venv/bin/python', '/tmp/venv-callv0ft7im9/script.py', '/tmp/venv-callv0ft7im9/script.in', '/tmp/venv-callv0ft7im9/script.out', '/tmp/venv-callv0ft7im9/string_args.txt', '/tmp/venv-callv0ft7im9/termination.log']' returned non-zero exit status 1.; 3004)
+[2024-07-09T09:10:42.596+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-09T09:10:42.625+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
