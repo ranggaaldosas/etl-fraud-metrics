@@ -33928,3 +33928,53 @@ File Path                              PID    Runtime      # DAGs    # Errors  L
 /opt/airflow/dags/customer_metrics.py                           1           0  15.78s          2024-07-09T12:14:40
 /opt/airflow/dags/generate_data.py                              1           0  0.93s           2024-07-09T12:14:46
 ================================================================================
+[2024-07-09T12:15:20.613+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/customer_metrics.py  10342  10.24s            1           0  15.78s          2024-07-09T12:14:40
+/opt/airflow/dags/generate_data.py                              1           0  0.71s           2024-07-09T12:15:17
+================================================================================
+[2024-07-09T12:15:26.753+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2024-07-09T12:15:26.934+0000] {manager.py:741} INFO - There are 2 files in /opt/airflow/dags
+[2024-07-09T12:15:50.722+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/customer_metrics.py                           1           0  22.28s          2024-07-09T12:15:32
+/opt/airflow/dags/generate_data.py                              1           0  0.69s           2024-07-09T12:15:48
+================================================================================
+[2024-07-09T12:16:21.422+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/customer_metrics.py  10406  18.47s            1           0  22.28s          2024-07-09T12:15:32
+/opt/airflow/dags/generate_data.py                              1           0  0.85s           2024-07-09T12:16:19
+================================================================================
+[2024-07-09T12:16:51.427+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/customer_metrics.py                           1           0  21.05s          2024-07-09T12:16:23
+/opt/airflow/dags/generate_data.py                              1           0  1.01s           2024-07-09T12:16:51
+================================================================================
+[2024-07-09T12:17:22.260+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/customer_metrics.py                           1           0  17.56s          2024-07-09T12:17:12
+/opt/airflow/dags/generate_data.py     10518  0.01s             1           0  1.01s           2024-07-09T12:16:51
+================================================================================
+[2024-07-09T12:17:45.315+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2024-07-09T12:17:45.315+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2024-07-09T12:17:46.454+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
