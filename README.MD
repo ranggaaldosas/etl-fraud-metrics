@@ -12,6 +12,7 @@
 
 
 #### A. System Design
+![system_design](./assets/system_design_fraud_etl.png)
 
 #### B. Airflow Graph
 ![flow](./assets/airflow_graph.png)
